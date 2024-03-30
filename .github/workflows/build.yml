@@ -1,32 +1,18 @@
-﻿name: Build
+﻿name: Build Software
 
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main  # 可以根据你的主要分支名称进行修改
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set ACTIONS_ALLOW_UNSECURE_COMMANDS
-      run: echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >> $GITHUB_ENV
-
-    - name: Restore NuGet Packages
-      run: dotnet restore
-      working-directory: ./
-
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.0
-
-    - name: Build Solution
-      run: msbuild /p:Configuration=Release /m /p:Platform="Any CPU" ./Steamless.sln
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: software-artifact
-        path: ./bin/Release
+    - name: Build solution
+      run: |
+        dotnet build Steamless.sln
