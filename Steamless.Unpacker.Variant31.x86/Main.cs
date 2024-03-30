@@ -1,5 +1,5 @@
 ﻿/**
- * Steamless - Copyright (c) 2015 - 2023 atom0s [atom0s@live.com]
+ * Steamless - Copyright (c) 2015 - 2024 atom0s [atom0s@live.com]
  *
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to
@@ -417,8 +417,11 @@ namespace Steamless.Unpacker.Variant31.x86
                 if (data == null)
                     return false;
 
-                // Set the code section override data..
-                this.CodeSectionData = data;
+                // Merge the code section data into the original..
+                var sectionData = this.File.SectionData[this.CodeSectionIndex];
+                Array.Copy(data, sectionData, (long)this.StubHeader.CodeSectionRawSize);
+
+                this.CodeSectionData = sectionData;
 
                 return true;
             }

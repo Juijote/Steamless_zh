@@ -1,5 +1,5 @@
 ﻿/**
- * Steamless - Copyright (c) 2015 - 2023 atom0s [atom0s@live.com]
+ * Steamless - Copyright (c) 2015 - 2024 atom0s [atom0s@live.com]
  *
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to
@@ -248,18 +248,18 @@ namespace Steamless.CLI
             // Ensure the input file exists..
             if (!File.Exists(file))
             {
-                logService.OnAddLogMessage(null, new LogMessageEventArgs("指定的输入文件无效，无法继续。", LogMessageType.Error));
+                logService.OnAddLogMessage(null, new LogMessageEventArgs("Invalid input file given; cannot continue.", LogMessageType.Error));
                 return 1;
             }
 
             // Collect the list of available plugins..
             var plugins = GetSteamlessPlugins(logService);
-            plugins.ForEach(p => logService.OnAddLogMessage(null, new LogMessageEventArgs($"已加载插件: {p.Name} - by {p.Author} (v.{p.Version})", LogMessageType.Success)));
+            plugins.ForEach(p => logService.OnAddLogMessage(null, new LogMessageEventArgs($"Loaded plugin: {p.Name} - by {p.Author} (v.{p.Version})", LogMessageType.Success)));
 
             // Ensure plugins were found and loaded..
             if (plugins.Count == 0)
             {
-                logService.OnAddLogMessage(null, new LogMessageEventArgs("没有加载任何插件，运行前一定要完全解压 Steamless！", LogMessageType.Error));
+                logService.OnAddLogMessage(null, new LogMessageEventArgs("No plugins were loaded; be sure to fully extract Steamless before running!", LogMessageType.Error));
                 return 1;
             }
 
@@ -272,14 +272,14 @@ namespace Steamless.CLI
                     var ret = p.ProcessFile(file, opts);
 
                     logService.OnAddLogMessage(null, !ret
-                        ? new LogMessageEventArgs("无法解包文件。", LogMessageType.Error)
-                        : new LogMessageEventArgs("文件解包成功！", LogMessageType.Success));
+                        ? new LogMessageEventArgs("Failed to unpack file.", LogMessageType.Error)
+                        : new LogMessageEventArgs("Successfully unpacked file!", LogMessageType.Success));
 
                     if (ret) return 0;
                 }
             }
 
-            logService.OnAddLogMessage(null, new LogMessageEventArgs("所有解包插件都无法解包文件。", LogMessageType.Error));
+            logService.OnAddLogMessage(null, new LogMessageEventArgs("All unpackers failed to unpack file.", LogMessageType.Error));
             return 1;
         }
     }
