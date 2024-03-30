@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '4.8'  # 根据你的需要选择版本
+        dotnet-version: '8.0'  # 根据你的需要选择版本
 
     - name: Restore dependencies
       run: |
