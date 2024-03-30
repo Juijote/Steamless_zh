@@ -154,7 +154,7 @@
             <!-- Window Navbar -->
             <Grid VerticalAlignment="Top">
                 <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Label Content="Steamless - 解包移除 DRM [v3.1.0.4] [Juij 汉化] [2024-01-23]" Foreground="White" />
+                    <Label Content="Steamless - 解包移除 DRM [v3.1.0.5] [Juij 汉化] [公众号：非线性列车] [2024-03-30]" Foreground="White" />
                 </Grid>
                 <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>

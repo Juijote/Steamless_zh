@@ -188,7 +188,7 @@
                                 </Style.Triggers>
                             </Style>
                         </Label.Style>
-                        <Hyperlink NavigateUri="https://juij.eu.org/#Steamless" Foreground="#c0dd65">汉化更新下载
+                        <Hyperlink NavigateUri="https://juij.fun/#Steamless" Foreground="#c0dd65">汉化更新下载
                             <Hyperlink.TextDecorations>
                                 <TextDecorationCollection>
                                     <TextDecoration PenThicknessUnit="FontRecommended" PenOffset="3">
@@ -319,7 +319,7 @@
                 <Label Content="制作人员" FontSize="18" FontWeight="Bold" />
                 <Label Content="atom0s - Lead Developer" Foreground="#c0dd65" />
                 <Label Content="Cyanic (aka Golem_x86) - For his work / research." />
-                <Label Content="Juij - 汉化翻译" />
+                <Label Content="Juij - 汉化翻译 / 公众号：非线性列车" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
                 <StackPanel.Resources>

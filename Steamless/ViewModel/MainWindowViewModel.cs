@@ -95,7 +95,7 @@ namespace Steamless.ViewModel
 
             this.AddLogMessage(this, new LogMessageEventArgs("Steamless (c) 2015 - 2023 atom0s [atom0s@live.com]", LogMessageType.Debug));
             this.AddLogMessage(this, new LogMessageEventArgs("Website: http://atom0s.com/", LogMessageType.Debug));
-            this.AddLogMessage(this, new LogMessageEventArgs("汉化更新: https://juij.eu.org/#Steamless", LogMessageType.Debug));
+            this.AddLogMessage(this, new LogMessageEventArgs("汉化更新: https://juij.fun/#Steamless", LogMessageType.Debug));
 
             // Initialize this model..
             this.Initialize();
