@@ -13,6 +13,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'  # 根据你的需要选择版本
+
+    - name: Restore dependencies
+      run: |
+        dotnet restore Steamless.sln
+
     - name: Build solution
       run: |
-        dotnet build Steamless.sln
+        dotnet build Steamless.sln --configuration Release
